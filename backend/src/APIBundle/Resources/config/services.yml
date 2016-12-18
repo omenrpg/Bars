@@ -1,0 +1,13 @@
+services:
+#    api.example:
+#        class: APIBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+    api.services.factories.google_place_api:
+        class: APIBundle\Services\Factories\GooglePlaceApi
+        arguments:
+            - "%googles_api_configuration%"
+    api.services.bars_api:
+        class: APIBundle\Services\BarsApi
+        arguments:
+            - "@api.services.factories.google_place_api"
